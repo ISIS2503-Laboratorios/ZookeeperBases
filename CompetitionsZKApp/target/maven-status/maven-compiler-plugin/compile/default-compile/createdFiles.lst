@@ -1,0 +1,8 @@
+co/edu/uniandes/isis2503/zk/competition/services/CompetitionServices.class
+co/edu/uniandes/isis2503/zk/competition/models/entities/Competition.class
+co/edu/uniandes/isis2503/zk/competition/models/CompetitionLogic.class
+co/edu/uniandes/isis2503/zk/competition/models/conveter/CompetitionConverter.class
+co/edu/uniandes/isis2503/zk/competition/models/dtos/CompetitorDTO.class
+co/edu/uniandes/isis2503/zk/competition/models/dtos/CompetitionDTO.class
+co/edu/uniandes/isis2503/zk/competition/main/Main.class
+co/edu/uniandes/isis2503/zk/competition/persistences/CompetitionPersistence.class

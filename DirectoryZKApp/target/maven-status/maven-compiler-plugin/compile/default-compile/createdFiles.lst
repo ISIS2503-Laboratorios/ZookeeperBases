@@ -1,0 +1,5 @@
+co/edu/uniandes/isis2503/zk/directoryzkapp/models/MicroserviceReport.class
+co/edu/uniandes/isis2503/zk/directoryzkapp/main/Main.class
+co/edu/uniandes/isis2503/zk/directoryzkapp/services/DirectoryService.class
+co/edu/uniandes/isis2503/zk/directoryzkapp/models/Microservice.class
+co/edu/uniandes/isis2503/zk/directoryzkapp/logic/ZookeeperConnection.class
