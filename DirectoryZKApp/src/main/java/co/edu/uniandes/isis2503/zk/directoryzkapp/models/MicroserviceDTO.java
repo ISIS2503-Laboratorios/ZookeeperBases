@@ -14,7 +14,7 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
  * @author Luis Felipe Mendivelso Osorio <lf.mendivelso10@uniandes.edu.co>
  */
 @XmlRootElement
-public class MicroserviceReport implements Serializable {
+public class MicroserviceDTO implements Serializable {
 
     public static final String TYPE_DYNAMIC="DYNAMIC";
     public static final String TYPE_DYNAMIC_SEQUENTIAL="DYNAMIC_SEQUENTIAL";
@@ -32,10 +32,10 @@ public class MicroserviceReport implements Serializable {
     private String type;
     private String status;
 
-    public MicroserviceReport() {
+    public MicroserviceDTO() {
     }
 
-    public MicroserviceReport(String appName, String microserviceName, String microserviceId, String server, Integer port, String path, String type, String status) {
+    public MicroserviceDTO(String appName, String microserviceName, String microserviceId, String server, Integer port, String path, String type, String status) {
         this.appName = appName;
         this.microserviceName = microserviceName;
         this.microserviceId = microserviceId;

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.isis2503.zk.directoryzkapp.models;
 
+import java.io.Serializable;
 import org.codehaus.jackson.map.annotate.JsonRootName;
 
 /**
@@ -13,7 +14,7 @@ import org.codehaus.jackson.map.annotate.JsonRootName;
  */
 
 @JsonRootName("details")
-public class Microservice {
+public class Microservice implements Serializable{
     
     private String description;
 

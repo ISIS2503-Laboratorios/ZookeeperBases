@@ -5,20 +5,14 @@
  */
 package co.edu.uniandes.isis2503.zk.directoryzkapp.logic;
 
-import co.edu.uniandes.isis2503.zk.directoryzkapp.models.Microservice;
 import java.io.Closeable;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
 import org.apache.curator.retry.ExponentialBackoffRetry;
-import org.apache.curator.x.discovery.ServiceDiscovery;
-import org.apache.curator.x.discovery.ServiceDiscoveryBuilder;
-import org.apache.curator.x.discovery.ServiceProvider;
-import org.apache.curator.x.discovery.details.JsonInstanceSerializer;
+
 
 /**
  *
@@ -29,7 +23,6 @@ public class ZookeeperConnection implements Closeable {
     
     public static final String ZK_HOST = "localhost";
     public static final String PORT = "2181";
-    public static final String APP_PATH = "/Contests.com";
     public static final String ZOOKEEPER_SERVER = ZK_HOST + ":" + PORT;
 
     private static ZookeeperConnection connection = null;
@@ -42,16 +35,12 @@ public class ZookeeperConnection implements Closeable {
         try {
             sleepTime = 1000;
             retries = 3;
-            // Create a Retry Policy
             retryPolicy = new ExponentialBackoffRetry(sleepTime, retries);
-            // Set a new client to connect to Zookeeper by Curator
             client = CuratorFrameworkFactory.newClient(ZOOKEEPER_SERVER, retryPolicy);
-            // Start Connection
             client.start();
-            // Check the Status connection.
             System.out.println("STATUS CONNECTION: "+statusConnection());
         } catch (Exception e) {
-            e.printStackTrace();
+            Logger.getLogger(ZookeeperConnection.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
