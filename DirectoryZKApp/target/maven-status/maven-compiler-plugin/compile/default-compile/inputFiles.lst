@@ -1,9 +1,0 @@
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/converter/ConverterTool.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/logic/DirectoryHealthCheck.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/services/DirectoryService.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/models/Microservice.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/models/MicroserviceDTO.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/logic/MicroserviceConnection.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/logic/ZookeeperConnection.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/logic/DirectoryLogic.java
-/home/lfmendivelso10/Asistencia/ZookeeperBases/DirectoryZKApp/src/main/java/co/edu/uniandes/isis2503/zk/directoryzkapp/main/Main.java

@@ -32,6 +32,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.NonUniqueResultException;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
+import org.jboss.logging.Logger;
 
 /**
  *
@@ -66,7 +67,7 @@ public class CompetitionPersistence {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, e);
         } finally {
             em.close();
         }
@@ -85,7 +86,7 @@ public class CompetitionPersistence {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, e);
         } finally {
             em.close();
         }
@@ -113,7 +114,7 @@ public class CompetitionPersistence {
             if (tx != null && tx.isActive()) {
                 tx.rollback();
             }
-            e.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, e);
         } finally {
             em.close();
         }
@@ -128,7 +129,7 @@ public class CompetitionPersistence {
             competition = (Competition) query.getSingleResult();
         } catch (NoResultException | NonUniqueResultException e) {
             competition = null;
-            e.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, e);
         } finally {
             em.close();
         }
@@ -144,7 +145,7 @@ public class CompetitionPersistence {
             competition = (Competition) query.getSingleResult();
         } catch (NoResultException | NonUniqueResultException ex) {
             competition = null;
-            ex.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, ex);
         } finally {
             em.close();
         }
@@ -159,7 +160,7 @@ public class CompetitionPersistence {
             competition = query.getResultList();
         } catch (NoResultException | NonUniqueResultException ex) {
             competition = null;
-            ex.printStackTrace();
+            Logger.getLogger(CompetitionPersistence.class.getName()).log(Logger.Level.FATAL, ex);
         } finally {
             em.close();
         }

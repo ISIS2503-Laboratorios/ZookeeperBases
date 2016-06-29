@@ -24,6 +24,8 @@
 package co.edu.uniandes.isis2503.zk.competition.models.dtos;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -46,8 +48,22 @@ public class CompetitionDTO implements Serializable{
     private long winnerId;
 
     private double prize;
+    
+    private List<Long> competitors;
 
     public CompetitionDTO() {
+        competitors = new ArrayList();
+    }
+
+    public CompetitionDTO(String id, String name, String city, String country, String year, long winnerId, double prize, List<Long> competitors) {
+        this.id = id;
+        this.name = name;
+        this.city = city;
+        this.country = country;
+        this.year = year;
+        this.winnerId = winnerId;
+        this.prize = prize;
+        this.competitors = competitors;
     }
 
     public String getId() {
@@ -105,5 +121,18 @@ public class CompetitionDTO implements Serializable{
     public void setPrize(double prize) {
         this.prize = prize;
     }
+
+    public List<Long> getCompetitors() {
+        return competitors;
+    }
+
+    public void setCompetitors(List<Long> competitors) {
+        this.competitors = competitors;
+    }
+    
+    public void addCompetitor(Long competitorId){
+        this.competitors.add(competitorId);
+    }
+    
 
 }

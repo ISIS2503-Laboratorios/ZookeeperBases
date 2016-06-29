@@ -23,11 +23,17 @@
  */
 package co.edu.uniandes.isis2503.zk.competition.models;
 
-import co.edu.uniandes.isis2503.zk.competition.models.conveter.CompetitionConverter;
+import co.edu.uniandes.isis2503.zk.competition.coordination.MicroserviceDTO;
+import co.edu.uniandes.isis2503.zk.competition.coordination.MicroserviceRegistrar;
+import co.edu.uniandes.isis2503.zk.competition.models.converter.CompetitionConverter;
 import co.edu.uniandes.isis2503.zk.competition.models.dtos.CompetitionDTO;
+import co.edu.uniandes.isis2503.zk.competition.models.dtos.CompetitorDTO;
 import co.edu.uniandes.isis2503.zk.competition.models.entities.Competition;
 import co.edu.uniandes.isis2503.zk.competition.persistences.CompetitionPersistence;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.WebResource;
 import java.util.List;
+import org.jboss.logging.Logger;
 
 /**
  *
@@ -35,7 +41,7 @@ import java.util.List;
  */
 public class CompetitionLogic {
     
-    private CompetitionPersistence persistencer;
+    private final CompetitionPersistence persistencer;
     
     public CompetitionLogic(){
         this.persistencer = CompetitionPersistence.getPesistencer();
@@ -69,6 +75,17 @@ public class CompetitionLogic {
     
     public List<CompetitionDTO> getCompetitions() {
         return CompetitionConverter.listEntitiestoListDTO(persistencer.getCompetitions());
+    }
+    
+    public Boolean addCompetitorToCompetition(CompetitionDTO competition, CompetitorDTO competitor){
+        
+        competitor = CompetitorLogic.addCompetitor(competitor);
+        if(competitor == null){
+            return false;
+        }
+        competition.addCompetitor(competitor.getId());
+        updateCompetition(competition);
+        return true;
     }
 
 }

@@ -25,6 +25,7 @@ package co.edu.uniandes.isis2503.zk.competition.services;
 
 import co.edu.uniandes.isis2503.zk.competition.models.CompetitionLogic;
 import co.edu.uniandes.isis2503.zk.competition.models.dtos.CompetitionDTO;
+import co.edu.uniandes.isis2503.zk.competition.models.dtos.CompetitorDTO;
 import java.util.List;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -107,6 +108,24 @@ public class CompetitionServices {
             return Response.status(500).header("Access-Control-Allow-Origin", "*").entity("We found errors in your query, please contact the Web Admin.").build();
         } else {
             return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(competition).build();
+        }
+    }
+    
+    @POST
+    @Path("/{competitionName}/add")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addCompetitor(@PathParam("competitionName") String name, CompetitorDTO competitor) {
+        CompetitionDTO competition = logic.getCompetitionByName(name);
+        if (competition == null) {
+            return Response.status(500).header("Access-Control-Allow-Origin", "*").entity("We found errors in your query, please contact the Web Admin.").build();
+        } else {
+            if(logic.addCompetitorToCompetition(competition, competitor)){
+                return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(competition).build();
+            }
+            else{
+                return Response.status(500).header("Access-Control-Allow-Origin", "*").entity("We was wrong. Contact your WebAdmin.").build();
+            }
+            
         }
     }
 

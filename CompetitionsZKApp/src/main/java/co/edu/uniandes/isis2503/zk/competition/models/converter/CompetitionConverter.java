@@ -21,7 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-package co.edu.uniandes.isis2503.zk.competition.models.conveter;
+package co.edu.uniandes.isis2503.zk.competition.models.converter;
 
 import co.edu.uniandes.isis2503.zk.competition.models.dtos.CompetitionDTO;
 import co.edu.uniandes.isis2503.zk.competition.models.entities.Competition;
@@ -43,6 +43,7 @@ public class CompetitionConverter {
         entity.setPrize(dto.getPrize());
         entity.setYear(dto.getYear());
         entity.setWinnerId(dto.getWinnerId());
+        entity.setCompetitors(dto.getCompetitors());
         return entity;
     }
     
@@ -55,6 +56,7 @@ public class CompetitionConverter {
         dto.setPrize(entity.getPrize());
         dto.setYear(entity.getYear());
         dto.setWinnerId(entity.getWinnerId());
+        dto.setCompetitors(entity.getCompetitors());
         return dto;
     }
     

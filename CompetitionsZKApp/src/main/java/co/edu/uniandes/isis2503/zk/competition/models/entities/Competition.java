@@ -25,6 +25,7 @@ package co.edu.uniandes.isis2503.zk.competition.models.entities;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -40,6 +41,7 @@ import org.eclipse.persistence.nosql.annotations.NoSql;
 
 /**
  * This class is a entity definition for Competition information.
+ *
  * @author Luis Felipe Mendivelso Osorio <lf.mendivelso10@uniandes.edu.co>
  */
 @NoSql(dataFormat = DataFormatType.MAPPED)
@@ -69,6 +71,8 @@ public class Competition implements Serializable {
 
     private String year;
 
+    private List<Long> competitors;
+
     private long winnerId;
 
     private double prize;
@@ -76,14 +80,18 @@ public class Competition implements Serializable {
     public Competition() {
     }
 
-    public Competition(String name, String city, String country, String year, long winnerId, double prize) {
+    public Competition(String id, String name, String city, String country, String year, List<Long> competitors, long winnerId, double prize) {
+        this.id = id;
         this.name = name;
         this.city = city;
         this.country = country;
         this.year = year;
+        this.competitors = competitors;
         this.winnerId = winnerId;
         this.prize = prize;
     }
+
+    
 
     @PreUpdate
     private void updateTimestamp() {
@@ -151,4 +159,11 @@ public class Competition implements Serializable {
         this.prize = prize;
     }
 
+    public List<Long> getCompetitors() {
+        return competitors;
+    }
+
+    public void setCompetitors(List<Long> competitors) {
+        this.competitors = competitors;
+    }
 }

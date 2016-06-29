@@ -138,4 +138,9 @@ public class CompetitorDTO implements Serializable {
         this.country = country;
     }
 
+    @Override
+    public String toString() {
+        return "CompetitorDTO{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", age=" + age + ", telephone=" + telephone + ", cellphone=" + cellphone + ", address=" + address + ", city=" + city + ", country=" + country + '}';
+    }
+
 }
