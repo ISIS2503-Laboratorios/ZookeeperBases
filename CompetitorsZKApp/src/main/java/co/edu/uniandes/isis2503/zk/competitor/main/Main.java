@@ -23,6 +23,7 @@
  */
 package co.edu.uniandes.isis2503.zk.competitor.main;
 
+import co.edu.uniandes.isis2503.zk.competitor.coordination.MicroserviceRegistrar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.jetty.server.Server;
@@ -48,6 +49,8 @@ public class Main {
             root.setResourceBase(webappDirLocation);
             root.setParentLoaderPriority(true);
             server.setHandler(root);
+            MicroserviceRegistrar.registerMicroservice();
+            MicroserviceRegistrar.startHeartbeat();
             server.start();
             server.join();
         } catch (InterruptedException ex) {

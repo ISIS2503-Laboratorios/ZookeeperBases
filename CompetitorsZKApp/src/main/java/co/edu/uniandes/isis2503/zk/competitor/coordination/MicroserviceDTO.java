@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.uniandes.isis2503.zk.competition.models.dtos;
+package co.edu.uniandes.isis2503.zk.competitor.coordination;
 
 import java.io.Serializable;
 import javax.xml.bind.annotation.XmlRootElement;

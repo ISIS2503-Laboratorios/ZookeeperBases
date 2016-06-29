@@ -10,6 +10,7 @@ import co.edu.uniandes.isis2503.zk.directoryzkapp.logic.DirectoryLogic;
 import co.edu.uniandes.isis2503.zk.directoryzkapp.models.Microservice;
 import co.edu.uniandes.isis2503.zk.directoryzkapp.models.MicroserviceDTO;
 import java.util.Collection;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.DELETE;
@@ -37,10 +38,11 @@ public class DirectoryService {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public Response registerMicroservice(MicroserviceDTO microservicio) {
+    public Response registerMicroservice(MicroserviceDTO microservice) {
         try {
-            if (directoryLogic.addNewMicroservice(microservicio)) {
-                return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(microservicio.toString()).build();
+            if (directoryLogic.addNewMicroservice(microservice)) {
+                System.out.println("Information was Added from: "+microservice.getMicroserviceName()+"("+microservice.getServer()+")"+new Date().toString());
+                return Response.status(200).header("Access-Control-Allow-Origin", "*").entity(microservice.toString()).build();
             } else {
                 return Response.status(500).header("Access-Control-Allow-Origin", "*").entity("We found errors in your query, please contact the Web Admin.").build();
             }
@@ -123,5 +125,9 @@ public class DirectoryService {
             Logger.getLogger(DirectoryService.class.getName()).log(Level.SEVERE, null, e);
             return Response.status(500).header("Access-Control-Allow-Origin", "*").entity("We found errors in your query, please contact the Web Admin.").build();
         }
+    }
+    
+    public static DirectoryLogic getDirectoryLogic(){
+        return directoryLogic;
     }
 }

@@ -5,6 +5,7 @@
  */
 package co.edu.uniandes.isis2503.zk.directoryzkapp.main;
 
+import co.edu.uniandes.isis2503.zk.directoryzkapp.logic.DirectoryHealthCheck;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.eclipse.jetty.server.Server;
@@ -30,6 +31,7 @@ public class Main {
             root.setResourceBase(webappDirLocation);
             root.setParentLoaderPriority(true);
             server.setHandler(root);
+            DirectoryHealthCheck.startHealthCheckJob();
             server.start();
             server.join();
         } catch (InterruptedException ex) {
