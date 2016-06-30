@@ -40,7 +40,7 @@ public class Main {
             String webappDirLocation = "src/main/webapp/";
             String webPort = System.getenv("PORT");
             if (webPort == null || webPort.isEmpty()) {
-                webPort = "8081";
+                webPort = MicroserviceRegistrar.DIRECTORY_PORT+"";
             }
             Server server = new Server(Integer.valueOf(webPort));
             WebAppContext root = new WebAppContext();

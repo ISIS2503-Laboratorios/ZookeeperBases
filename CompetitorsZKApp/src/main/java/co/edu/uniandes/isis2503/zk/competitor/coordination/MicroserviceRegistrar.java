@@ -46,19 +46,19 @@ import org.quartz.impl.StdSchedulerFactory;
  */
 public class MicroserviceRegistrar implements Job {
 
-    private static final String DIRECTORY_SERVER = "localhost";
-    private static final Integer DIRECTORY_PORT = 8080;
-    private static final String DIRECTORY_PATH = "/directory";
-    private static final String DIRECTORY_URL = "http://" + DIRECTORY_SERVER + ":" + DIRECTORY_PORT + DIRECTORY_PATH;
+    public static final String DIRECTORY_SERVER = "localhost";
+    public static final Integer DIRECTORY_PORT = 8080;
+    public static final String DIRECTORY_PATH = "/directory";
+    public static final String DIRECTORY_URL = "http://" + DIRECTORY_SERVER + ":" + DIRECTORY_PORT + DIRECTORY_PATH;
 
-    private static final String MICROSERVICE_APPNAME = "Concourse";
-    private static final String MICROSERVICE_ID = "201420653";
-    private static final String MICROSERVICE_NAME = "competitors";
-    private static final String MICROSERVICE_TYPE = MicroserviceDTO.TYPE_STATIC;
-    private static final String MICROSERVICE_SERVER = "localhost";
-    private static final Integer MICROSERVICE_PORT = 8081;
-    private static final String MICROSERVICE_PATH = "/competitors";
-    private static final String MICROSERVICE_STATUS = MicroserviceDTO.STATUS_UP;
+    public static final String MICROSERVICE_APPNAME = "Concourse";
+    public static final String MICROSERVICE_ID = "201420653";
+    public static final String MICROSERVICE_NAME = "competitors";
+    public static final String MICROSERVICE_TYPE = MicroserviceDTO.TYPE_STATIC;
+    public static final String MICROSERVICE_SERVER = "localhost";
+    public static final Integer MICROSERVICE_PORT = 8081;
+    public static final String MICROSERVICE_PATH = "/competitors";
+    public static final String MICROSERVICE_STATUS = MicroserviceDTO.STATUS_UP;
     
     public static final Integer HEARTBEAT_FRECUENCY_SECONDS = 30;
 
