@@ -77,7 +77,7 @@ public class MicroserviceRegistrar implements Job {
     @Override
     public void execute(JobExecutionContext jec) throws JobExecutionException {
         registerMicroservice();
-        System.out.println("Heartbeat sended: "+new Date().toString());
+        System.out.println("Heartbeat sent: "+new Date().toString());
     }
 
     public static final void startHeartbeat() {
